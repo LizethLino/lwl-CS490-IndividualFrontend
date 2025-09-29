@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    background-color: #83b0de;
+    background-color: #5f7e9c;
 }
 
 .container {
@@ -17,7 +17,7 @@ body {
 
 .nav {
     background-color: #0b093e;
-    color: rgb(239, 220, 193);
+    color: rgb(170, 151, 126);
     display: flex;
     justify-content: space-between;
     align-items: stretch;
@@ -47,7 +47,7 @@ body {
 }
 
 .nav li.active {
-    background-color: #555;
+    background-color: #352d68;
 }
 
 .nav li:hover {
@@ -248,4 +248,285 @@ body {
 .popup-inner .close-btn:hover {
     background: rgb(45, 5, 5);
     color: #fff;
+}
+
+.filmsPage {
+    display: flex;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(200, 194, 187);
+    border-radius: 15px;
+    margin-left: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(3, 0, 0, 0.2);
+    padding: 10px 20px;
+    transition: transform 0 0.2s;
+    width: 220px;
+    text-align: center;
+    height: 500px;
+}
+
+.filter h2 {
+    font-size: x-large;
+    text-align: center;
+    color: #060419;
+    text-decoration: underline;
+}
+
+.filter label {
+    font-size: 15px;
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #1e1f3d;
+    font-weight: bold;
+}
+
+.filter input {
+    display: block;
+
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.filter .filter-btn {
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin: 15px;
+    border: none;
+    background-color: rgb(49, 28, 142);
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: .2s linear;
+}
+
+.filter .filter-btn:hover {
+    color:#0b093e;
+    background-color: #fff;
+}
+
+
+/*to be changed*/
+.full-table-wrapper {
+    max-height: 500px;
+    overflow-y: auto;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding-right: 5px;
+}
+
+.table {
+  display: block;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #060419;
+}
+
+.tr {
+  display: flex;
+  color: #ffffff;
+}
+
+.th {
+  font-weight: bold;
+  position: relative;
+  color: #ffffff;
+  
+}
+
+.th, .td {
+  flex: 1;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #ffffff;
+  color: rgb(170, 151, 126);
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.table button {
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin: 15px;
+    border: none;
+    background-color: rgb(49, 28, 142);
+    color: #fff;
+    cursor: pointer;
+    font-size: 10px;
+    text-transform: uppercase;
+    transition: .2s linear;
+}
+
+.table button:hover {
+    color:#0b093e;
+    background-color: #b3b3b3;
+}
+
+.customersPage {
+    display: flex;
+}
+
+.customer-table {
+    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.customer-td, .customer-th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.customer-tr:nth-child(even) {
+    background-color: #0b093e;
+    display: flex;
+}
+
+.customer-tr:nth-child(odd) {
+    background-color: #1c194f;
+    display: flex;
+}
+
+.customer-tr {
+    color:#b0b0b0;
+    transition: .2s linear;
+}
+
+.customer-tr:hover {
+    background: rgb(154, 125, 125);
+    color: #040318;
+}
+
+.customer-th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #040318;
+    color:rgb(208, 148, 148);
+    text-align: center;
+}
+
+.customer-table button {
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin: 15px;
+    border: none;
+    background-color: rgb(208, 208, 208);
+    color: rgb(49, 28, 142);
+    cursor: pointer;
+    font-size: 10px;
+    text-transform: uppercase;
+    transition: .2s linear;
+}
+
+.customer-table button:hover {
+    background-color: #040318;
+    color: rgb(208, 208, 208);
+}
+
+.customer-details {
+    justify-content: center;
+    align-items: center;
+}
+
+.customer-popup {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    
+    overflow-y: auto;
+    background-color: rgba(14, 7, 47, 0.91);
+    border-radius: 15px;
+    z-index: 1000;
+    color: #cecece;
+}
+
+.CustomerDetails strong {
+    text-decoration: underline;
+}
+
+.customer-popup-inner {
+    position: relative;
+}
+
+.customer-popup-inner .close-btn {
+    margin: 15px;
+    padding: 5px;
+    outline: none;
+    color: rgb(123, 52, 52);
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .2s linear;
+}
+
+.customer-popup-inner .close-btn:hover {
+    background: rgb(45, 5, 5);
+    color: #fff;
+}
+
+.rental-table-wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    padding-right: 5px;
+}
+
+.rental-table {
+    display: block;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.rental-td, .rental-th {
+    border: 1px solid rgb(123, 52, 52);
+    padding: 8px;
+}
+
+.rental-tr:nth-child(even) {
+    background-color: #d9c5b6;
+    display: flex;
+}
+
+.rental-tr:nth-child(odd) {
+    background-color: #d4b297;
+    display: flex;
+}
+
+.rental-tr {
+    color:#0f0d0d;
+    transition: .2s linear;
+}
+
+.rental-tr:hover {
+    background: rgb(85, 62, 62);
+    color: #cbcbcb;
+}
+
+.rental-th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #180303;
+    color:rgb(149, 148, 208);
+    text-align: center;
 }
