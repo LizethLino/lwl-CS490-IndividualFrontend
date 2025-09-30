@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import FilmCard from "./FilmCard"
 import ActorCard from './ActorCard'
-import TopFilmsPopup from './TopFilmsPopup';
-import ActorPopup from './ActorPopup';
+import TopFilmsPopup from './TopFilmsPopup'
+import ActorPopup from './ActorPopup'
 
 export default function Home() {
     const [films, setFilms] = useState([]) //set to film setFilm

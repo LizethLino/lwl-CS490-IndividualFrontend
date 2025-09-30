@@ -10,8 +10,13 @@ export default function Customers() {
     const [firstname, setFirstname] = useState("")
     const [lastname, setLastname] = useState("")
 
-    const [pagenum, setPagenum] = useState(1)
+    const [pagination, setPagination] = useState({
+            pageIndex: 0,
+            pageSize: 10
+    
+    })
     const [totalpages, setTotalpages] = useState(1)
+    const [totalrecords, setTotalrecords] = useState(1)
 
     const [selectedcustomer, setSelectedcustomer] = useState([])
     const [customerpopup, setCustomerpopup] = useState(false)
@@ -31,22 +36,29 @@ export default function Customers() {
         .then(customerslist => {
             setCustomerslist(customerslist.customers)
             setTotalpages(customerslist.total_pages)
-            setPagenum(customerslist.page_num)
+            setPagination(prev => {
+                const newPageIndex = customerslist.page_num - 1
+                if (prev.pageIndex !== newPageIndex) {
+                    return { ...prev, pageIndex: newPageIndex }
+                }
+                return prev
+            })
+            setTotalrecords(customerslist.total_retrieved)
         })
     }
 
     useEffect(() => {
-                retrieveCustomers(pagenum)
-    },[pagenum])
+                retrieveCustomers(pagination.pageIndex+1)
+    },[pagination])
 
     const handleFilterClick = (event) => {
-        event.preventDefault();
+        event.preventDefault()
 
         const newFilters = {
             customerid, firstname, lastname
         }
 
-        setPagenum(1);
+        setPagination(prev => ({...prev, pageIndex:0}))
         setSubmittedfilter(newFilters)
         retrieveCustomers(1, newFilters)
     }
@@ -101,22 +113,14 @@ export default function Customers() {
                     <CustomerTable 
                         data={customerslist}
                         onViewDetails={handleCustomerClick}
+                        totalrows={totalrecords}
+                        totalpagenums={totalpages}
+                        pagination={pagination}
+                        setPagination={setPagination}
                     />
                 </div>
                 <div className='pagination'>
-                    <p>Page {pagenum} of {totalpages}</p>
-                    <button className="prev-button"
-                        onClick={() => setPagenum(prev => (prev === 1 ? 1 : prev-1))}
-                        disabled={pagenum <= 1}
-                    >
-                        Prev
-                    </button>
-                    <button className="next-button"
-                        onClick={() => setPagenum(next => (next === totalpages ? totalpages : next+1))}
-                        disabled={pagenum >= totalpages}
-                    >
-                        Next
-                    </button>
+                    <p>Page {totalpages === 0 ? 0 : pagination.pageIndex+1} of {totalpages}</p>
                 </div>
             </div>
             <CustomerPopup trigger={customerpopup} setTrigger={setCustomerpopup}>

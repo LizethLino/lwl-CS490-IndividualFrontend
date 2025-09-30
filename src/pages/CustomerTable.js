@@ -1,6 +1,6 @@
-import {flexRender, getCoreRowModel, useReactTable} from '@tanstack/react-table'
+import {flexRender, getCoreRowModel, useReactTable, getPaginationRowModel} from '@tanstack/react-table'
 
-const CustomerTable = ({data, onViewDetails}) => {
+const CustomerTable = ({data, onViewDetails, totalrows, totalpagenums, pagination, setPagination}) => {
     
     const columns = [
         {
@@ -39,9 +39,17 @@ const CustomerTable = ({data, onViewDetails}) => {
         data,
         columns,
         getCoreRowModel:getCoreRowModel(),
+        getPaginationRowModel: getPaginationRowModel(),
+        onPaginationChange: setPagination,
+        state: {
+            pagination
+        },
+        manualPagination: true,
+        rowCount: totalrows,
+        pageCount: totalpagenums
     })
 
-    return (
+    return (<div className='page-buttons'>
         <div className='full-table-wrapper'>
             <div className='table' style={{width: table.getTotalSize()}}>
                 {table.getHeaderGroups().map(headerGroup => (
@@ -63,6 +71,18 @@ const CustomerTable = ({data, onViewDetails}) => {
                     </div>
                 ))}
             </div>
+        </div>
+                <button
+                    onClick={() => table.firstPage()}
+                    disabled={!table.getCanPreviousPage()}
+                >{'<<'}</button>
+
+                <button className='prev-button' onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>Prev</button>
+                <button className='next-button' onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>Next</button>
+                <button
+                    onClick={() => table.lastPage()}
+                    disabled={!table.getCanNextPage()}
+                >{'>>'}</button>
         </div>
     )
 }

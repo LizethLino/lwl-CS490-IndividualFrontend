@@ -1,7 +1,7 @@
-import {flexRender, getCoreRowModel, useReactTable} from '@tanstack/react-table'
+import {flexRender, getCoreRowModel, useReactTable, getPaginationRowModel} from '@tanstack/react-table'
 
-const FilmTable = ({data, onViewDetails}) => {
-    
+const FilmTable = ({data, onViewDetails, totalrows, totalpagenums, pagination, setPagination}) => {
+
     const columns = [
         {
             accessorKey: 'film_id',
@@ -43,9 +43,17 @@ const FilmTable = ({data, onViewDetails}) => {
         data,
         columns,
         getCoreRowModel:getCoreRowModel(),
+        getPaginationRowModel: getPaginationRowModel(),
+        onPaginationChange: setPagination,
+        state: {
+            pagination
+        },
+        manualPagination: true,
+        rowCount: totalrows,
+        pageCount: totalpagenums
     })
 
-    return (
+    return (<div className='page-buttons'>
         <div className='full-table-wrapper'>
             <div className='table' w={table.getTotalSize()}>
                 {table.getHeaderGroups().map(headerGroup => (
@@ -68,7 +76,19 @@ const FilmTable = ({data, onViewDetails}) => {
                 ))}
             </div>
         </div>
-    )
+
+        <button
+                onClick={() => table.firstPage()}
+                disabled={!table.getCanPreviousPage()}
+            >{'<<'}</button>
+
+            <button className='prev-button' onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>Prev</button>
+            <button className='next-button' onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>Next</button>
+            <button
+                onClick={() => table.lastPage()}
+                disabled={!table.getCanNextPage()}
+            >{'>>'}</button>
+    </div>)
 }
 
 export default FilmTable

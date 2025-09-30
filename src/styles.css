@@ -80,34 +80,33 @@ body {
 
 }
 
-.pagination p {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.pagination .prev-button {
+.prev-button {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    margin-right: 5px;
+    margin-right: 0px;
     background-color: #fff;
     border: #0b093e;
     text-transform: uppercase;
     transition: .2s linear;
     cursor: pointer;
     padding: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
-.pagination .next-button {
+.next-button {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    margin-left: 5px;
+    margin-left: 0px;
     text-transform: uppercase;
     transition: .2s linear;
     cursor: pointer;
     padding: 5px;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
-.pagination button:not(:disabled):hover {
+.page-buttons button:not(:disabled):hover {
     background-color: #040318;
     color: rgb(208, 208, 208);
 }

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import FilmTable from "./FilmTable"
-import FilmPopup from './FilmPopup';
+import FilmPopup from './FilmPopup'
 
 export default function Films() {
     
@@ -11,8 +11,13 @@ export default function Films() {
     const [actorlast, setActorlast] = useState("")
     const [category, setCategory] = useState("")
 
-    const [pagenum, setPagenum] = useState(1)
+    const [pagination, setPagination] = useState({
+        pageIndex: 0,
+        pageSize: 10
+
+    })
     const [totalpages, setTotalpages] = useState(1)
+    const [totalrecords, setTotalrecords] = useState(1)
 
     const [selectedfilm, setSelectedfilm] = useState([])
     const [filmpopup, setFilmpopup] = useState(false)
@@ -32,16 +37,23 @@ export default function Films() {
         .then(filmslist => {
             setFilmslist(filmslist.films)
             setTotalpages(filmslist.total_pages)
-            setPagenum(filmslist.page_num)
+            setPagination(prev => {
+                const newPageIndex = filmslist.page_num - 1
+                if (prev.pageIndex !== newPageIndex) {
+                    return { ...prev, pageIndex: newPageIndex }
+                }
+                return prev
+            })
+            setTotalrecords(filmslist.total_retrieved)
         })
     }
 
     useEffect(() => {
-            retrieveFilms(pagenum)
-    },[pagenum])
+            retrieveFilms(pagination.pageIndex+1)
+    },[pagination])
     
     const handleFilterClick = (event) => {
-        event.preventDefault();
+        event.preventDefault()
 
         const newFilters = {
             title, 
@@ -50,7 +62,7 @@ export default function Films() {
             category
         }
 
-        setPagenum(1);
+        setPagination(prev => ({...prev, pageIndex:0}))
         setSubmittedfilter(newFilters)
         retrieveFilms(1, newFilters)
     }
@@ -102,23 +114,15 @@ export default function Films() {
                 <FilmTable 
                     data={filmslist}
                     onViewDetails={handleFilmClick}
+                    totalrows={totalrecords}
+                    totalpagenums={totalpages}
+                    pagination={pagination}
+                    setPagination={setPagination}
                 />
             </div>
             <br/>
             <div className='pagination'>
-                <p>Page {pagenum} of {totalpages}</p>
-                <button className="prev-button"
-                    onClick={() => setPagenum(prev => (prev === 1 ? 1 : prev-1))}
-                    disabled={pagenum <= 1}
-                >
-                    Prev
-                </button>
-                <button className="next-button"
-                    onClick={() => setPagenum(next => (next === totalpages ? totalpages : next+1))}
-                    disabled={pagenum >= totalpages}
-                >
-                    Next
-                </button>
+                <p>Page {totalpages === 0 ? 0 : pagination.pageIndex+1} of {totalpages}</p>
             </div>
         </div>
         <FilmPopup trigger={filmpopup} setTrigger={setFilmpopup}>
