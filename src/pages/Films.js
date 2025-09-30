@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import FilmTable from "./FilmTable"
-import Popup from './Popup';
+import FilmPopup from './FilmPopup';
 
 export default function Films() {
     
@@ -107,13 +107,13 @@ export default function Films() {
             <br/>
             <div className='pagination'>
                 <p>Page {pagenum} of {totalpages}</p>
-                <button 
+                <button className="prev-button"
                     onClick={() => setPagenum(prev => (prev === 1 ? 1 : prev-1))}
                     disabled={pagenum <= 1}
                 >
                     Prev
                 </button>
-                <button
+                <button className="next-button"
                     onClick={() => setPagenum(next => (next === totalpages ? totalpages : next+1))}
                     disabled={pagenum >= totalpages}
                 >
@@ -121,18 +121,23 @@ export default function Films() {
                 </button>
             </div>
         </div>
-        <Popup trigger={filmpopup} setTrigger={setFilmpopup}>
+        <FilmPopup trigger={filmpopup} setTrigger={setFilmpopup}>
             {selectedfilm.length === 0 ? (
                 <p>No film found for this film ID.</p>
             ) : (
-                <div className='FilmDetails'>
-                    <h2>Film ID: {selectedfilm[0].film_id} - {selectedfilm[0].title} ({selectedfilm[0].release_year})</h2>
-                    <h1>Description: <span>{selectedfilm[0].description}</span><br /><br />
-                    Rating: <span>{selectedfilm[0].rating}</span><br />
-                    Special Features: <span>{selectedfilm[0].special_features}</span></h1>
+                <div className='film-rent'>
+                    <p><strong>Film ID:</strong> {selectedfilm[0].film_id} - {selectedfilm[0].title} ({selectedfilm[0].release_year})</p>
+                    <p><strong>Description:</strong> {selectedfilm[0].description}</p>
+                    <p><strong>Rating:</strong> {selectedfilm[0].rating}</p>
+                    <p><strong>Special Features:</strong> {selectedfilm[0].special_features}</p>
+                    <p><strong>Featured Actors:</strong> {selectedfilm[0].actors.join(', ')}</p>
+                    <p><strong>Movie Length:</strong> {selectedfilm[0].length} min</p>
+                    <p><strong>Rental Duration:</strong> {selectedfilm[0].rental_duration} days </p>
+                    <p><strong>Rental Rate</strong> ${selectedfilm[0].rental_rate}</p>
+                    <p><strong>Replacement Cost:</strong> ${selectedfilm[0].replacement_cost} </p>
                 </div>
             )}
-        </Popup>
+        </FilmPopup>
      </div>
     )
 }

@@ -43,20 +43,20 @@ const CustomerTable = ({data, onViewDetails}) => {
 
     return (
         <div className='full-table-wrapper'>
-            <div className='customer-table' style={{width: table.getTotalSize()}}>
+            <div className='table' style={{width: table.getTotalSize()}}>
                 {table.getHeaderGroups().map(headerGroup => (
-                    <div className='customer-tr' key={headerGroup.id}>
+                    <div className='tr' key={headerGroup.id}>
                         {headerGroup.headers.map((header) => (
-                            <div className='customer-th' key={header.id} style={{width: header.getSize(), position: 'relative'}}>
+                            <div className='th' key={header.id} style={{width: header.getSize(), position: 'relative'}}>
                                 {header.column.columnDef.header}
                             </div>
                         ))}
                     </div>
                 ))}
                 {table.getRowModel().rows.map(row => (
-                    <div className='customer-tr' key={row.id}>
+                    <div className='tr' key={row.id}>
                         {row.getVisibleCells().map(cell => (
-                            <div className='customer-td' key={cell.id} style={{width: cell.column.getSize(), position: 'relative'}}>
+                            <div className='td' key={cell.id} style={{width: cell.column.getSize(), position: 'relative'}}>
                                 {flexRender(cell.column.columnDef.cell,cell.getContext())}
                             </div>
                         ))}

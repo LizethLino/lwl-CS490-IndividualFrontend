@@ -4,255 +4,14 @@
 
 body {
     margin: 0;
-    background-color: #5f7e9c;
-}
-
-.container {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 0;
-    margin-right: 0;
-    text-align: center;
-}
-
-.nav {
-    background-color: #0b093e;
-    color: rgb(170, 151, 126);
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    gap: 2rem;
-    padding: 0 1rem;
-}
-
-.site-title {
-    font-size: 2rem;
-}
-
-.nav ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-}
-
-.nav a {
-    color: inherit;
-    text-decoration: none;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: .25rem;
-}
-
-.nav li.active {
-    background-color: #352d68;
-}
-
-.nav li:hover {
-    background-color: #777;
-}
-
-.filmbox {
-    width: 230px;
-    height: 400px;
-    overflow: hidden;
-    padding: 10px;
-    background-color: #fff;
-    box-shadow: rgba(59, 49, 49, 0.514) 0px 7px 20px 0px;
-    border-radius: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.filmbox img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.description {
-    margin-top: 0px;
-}
-
-.description h2 {
-    font-size: 20px;
-    color: rgb(123, 52, 52);
-    margin-top: 0px;
-}
-
-.category {
-    margin: 8px 0px;
-    font-size: 20px;
-    color: #222;
-    font-weight: bold;
-}
-
-.description .rentcount {
-    font-size: 15px;
-    margin-bottom: 3px;
-}
-
-.description .landingFilmButton {
-    margin-top: 10px;
-    outline: none;
-    border: 1px solid rgb(123, 52, 52);
-    padding: 12px 32px;
-    border-radius: 40px;
-    background-color: none;
-    color: rgb(123, 52, 52);
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: .2s linear;
-}
-
-.description .landingFilmButton:hover {
-    background: rgb(123, 52, 52);
-    color: #fff;
-}
-
-.home {
-    background-color: rgb(239, 220, 193);
-    margin: 0;
-    padding-bottom: 23px;
-    box-sizing: border-box;
-}
-
-.home h1 {
-    background-color: rgb(123, 52, 52);
-    padding: 5px;
-}
-
-.topfilms {
-    display: flex;
-    align-items: stretch; /*changed from center*/
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    background-color: #5a6496;
 }
 
 .divider {
     padding: 30px;
 }
 
-.actorbox {
-    width: 230px;
-    height: 150px;
-    overflow: hidden;
-    padding: 10px;
-    background-color: #fff;
-    box-shadow: rgba(59, 49, 49, 0.514) 0px 7px 20px 0px;
-    border-radius: 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.topactors {
-    display: flex;
-    align-items: stretch; /*changed from center*/
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.ActorDetails {
-    display:flex;
-    /*flex-direction: column;*/
-}
-
-.description .landingActorButton {
-    margin-top: 10px;
-    outline: none;
-    border: 1px solid rgb(123, 52, 52);
-    padding: 12px 32px;
-    border-radius: 40px;
-    background-color: none;
-    color: rgb(123, 52, 52);
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: .2s linear;
-}
-
-.description .landingActorButton:hover {
-    background: rgb(123, 52, 52);
-    color: #fff;
-}
-
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-}
-
-.popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 50%;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(123, 52, 52);
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(3, 0, 0, 0.2);
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-}
-
-.popup-inner {
-    position: relative;
-}
-
-.FilmDetails h2 {
-    text-decoration: underline;
-}
-
-.FilmDetails h1 {
-    font-size: medium;
-    padding-left: 50px;
-    padding-right: 50px;
-    color:rgb(45, 5, 5)
-}
-
-.FilmDetails span {
-    font-size: 14px;
-    color: rgb(208, 148, 148);
-}
-
-.popup-inner .close-btn {
-    margin-top: 10px;
-    outline: none;
-    border: 1px solid rgb(45, 5, 5);
-    padding: 10px 30px;
-    border-radius: 20px;
-    background-color: none;
-    color: rgb(123, 52, 52);
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: .2s linear;
-}
-
-.popup-inner .close-btn:hover {
-    background: rgb(45, 5, 5);
-    color: #fff;
-}
-
-.filmsPage {
-    display: flex;
-}
+/*Included in Films.js and Customers.js*/
 
 .filter {
     display: flex;
@@ -315,8 +74,433 @@ body {
     background-color: #fff;
 }
 
+.pagination {
+    margin-top: 0;
+    padding-bottom: 15px;
 
-/*to be changed*/
+}
+
+.pagination p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.pagination .prev-button {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-right: 5px;
+    background-color: #fff;
+    border: #0b093e;
+    text-transform: uppercase;
+    transition: .2s linear;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.pagination .next-button {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 5px;
+    text-transform: uppercase;
+    transition: .2s linear;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.pagination button:not(:disabled):hover {
+    background-color: #040318;
+    color: rgb(208, 208, 208);
+}
+
+/*App.js*/
+
+.container {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+}
+
+/*Navbar.js*/
+
+.nav {
+    background-color: #0b093e;
+    color: rgb(170, 151, 126);
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.site-title {
+    font-size: 2rem;
+}
+
+.nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav a {
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: .25rem;
+}
+
+.nav li.active {
+    background-color: #352d68;
+}
+
+.nav li:hover {
+    background-color: #777;
+}
+
+/*FilmCard.js*/
+
+.filmbox {
+    width: 230px;
+    height: 400px;
+    overflow: hidden;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: rgba(59, 49, 49, 0.514) 0px 7px 20px 0px;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.filmbox img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.description {
+    margin-top: 0px;
+}
+
+.description h2 {
+    font-size: 20px;
+    color: rgb(35, 8, 49);
+    margin-top: 0px;
+}
+
+.category {
+    margin: 8px 0px;
+    font-size: 20px;
+    color: #222;
+    font-weight: bold;
+}
+
+.description .rentcount {
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+.description .landingFilmButton {
+    margin-top: 10px;
+    outline: none;
+    border: 1px solid rgb(14, 8, 39);
+    padding: 12px 32px;
+    border-radius: 40px;
+    background-color: rgb(32, 13, 117);
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+.description .landingFilmButton:hover {
+    background: #746ac4;
+    color: #000000;
+}
+
+/*Home.js*/
+
+.home {
+    margin: 40px;
+    padding-bottom: 23px;
+    box-sizing: border-box;
+}
+
+.top-films {
+    padding: 0;
+    margin: 0;
+}
+
+.top-films h1 {
+    background-color: #0b093e;
+    color: rgb(208, 148, 148);
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 0;
+}
+
+.film-cards {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #b0b0b0;
+    padding: 30px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+.top-actors {
+    padding: 0;
+    margin: 0;
+}
+
+.top-actors h1 {
+    background-color: #22093e;
+    color: rgb(208, 148, 148);
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 0;
+}
+
+.actor-cards {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    background-color: #b0b0b0;
+    padding: 30px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.FilmDetails h2 {
+    text-decoration: underline;
+}
+
+.FilmDetails h1 {
+    font-size: medium;
+    padding-left: 50px;
+    padding-right: 50px;
+    color:rgb(45, 5, 5)
+}
+
+.FilmDetails span {
+    font-size: 14px;
+    color: rgb(208, 148, 148);
+}
+
+/*ActorCard.js*/
+
+.actorbox {
+    width: 230px;
+    height: 150px;
+    overflow: hidden;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: rgba(59, 49, 49, 0.514) 0px 7px 20px 0px;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.description .landingActorButton {
+    margin-top: 10px;
+    outline: none;
+    border: 1px solid rgb(123, 52, 52);
+    padding: 12px 32px;
+    border-radius: 40px;
+    background-color: none;
+    color: rgb(123, 52, 52);
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+.description .landingActorButton:hover {
+    background: rgb(123, 52, 52);
+    color: #fff;
+}
+
+/*All Popups*/
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/*TopFilmsPopup.js*/
+
+.topfilms-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+    background-color: rgb(123, 52, 52);
+    color: rgb(31, 16, 3);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(3, 0, 0, 0.2);
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.topfilms-popup-inner strong {
+    text-decoration: underline;
+}
+
+.topfilms-popup-inner {
+    position: relative;
+}
+
+.topfilms-popup-inner .close-btn {
+    margin-top: 10px;
+    outline: none;
+    border: 1px solid rgb(45, 5, 5);
+    padding: 10px 30px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: none;
+    color: rgb(123, 52, 52);
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+.topfilms-popup-inner .close-btn:hover {
+    background: rgb(45, 5, 5);
+    color: #fff;
+}
+
+/*ActorPopup.js*/
+
+.actor-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 392px;
+    background-color: rgb(123, 52, 52);
+    color: rgb(31, 16, 3);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(3, 0, 0, 0.2);
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.actor-popup .close-btn {
+    margin-top: 10px;
+    outline: none;
+    border: 1px solid rgb(45, 5, 5);
+    padding: 10px 30px;
+    border-radius: 20px;
+    background-color: none;
+    color: rgb(123, 52, 52);
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+.actor-popup-inner .close-btn:hover {
+    background: rgb(45, 5, 5);
+    color: #fff;
+}
+
+/*FilmPopup.js*/
+
+.film-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+    background-color: rgb(123, 52, 52);
+    color: rgb(31, 16, 3);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(3, 0, 0, 0.2);
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.film-popup-inner strong {
+    text-decoration: underline;
+}
+
+.film-popup-inner {
+    position: relative;
+}
+
+.film-popup-inner .close-btn {
+    margin-top: 10px;
+    outline: none;
+    border: 1px solid rgb(45, 5, 5);
+    padding: 10px 30px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: none;
+    color: rgb(123, 52, 52);
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+.film-popup-inner .close-btn:hover {
+    background: rgb(45, 5, 5);
+    color: #fff;
+}
+
+/*Films.js*/
+
+.filmsPage {
+    display: flex;
+}
+
+/*FilmTable.js and CustomersTable.js*/
+
+.table-section {
+    box-shadow: rgba(59, 49, 49, 0.514) 0px 7px 20px 0px;
+    background-color: rgb(146, 143, 155);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+
 .full-table-wrapper {
     max-height: 500px;
     overflow-y: auto;
@@ -326,98 +510,45 @@ body {
 }
 
 .table {
-  display: block;
-  border-collapse: collapse;
-  width: 100%;
-  background-color: #060419;
-}
-
-.tr {
-  display: flex;
-  color: #ffffff;
-}
-
-.th {
-  font-weight: bold;
-  position: relative;
-  color: #ffffff;
-  
-}
-
-.th, .td {
-  flex: 1;
-  min-width: 0;
-  padding: 10px;
-  border: 1px solid #ffffff;
-  color: rgb(170, 151, 126);
-  word-wrap: break-word;
-  white-space: normal;
-}
-
-.table button {
-    padding: 10px 15px;
-    border-radius: 6px;
-    margin: 15px;
-    border: none;
-    background-color: rgb(49, 28, 142);
-    color: #fff;
-    cursor: pointer;
-    font-size: 10px;
-    text-transform: uppercase;
-    transition: .2s linear;
-}
-
-.table button:hover {
-    color:#0b093e;
-    background-color: #b3b3b3;
-}
-
-.customersPage {
-    display: flex;
-}
-
-.customer-table {
     font-family: Arial, Helvetica, sans-serif;
-    display: block;
-    border-collapse: collapse;
     width: 100%;
 }
 
-.customer-td, .customer-th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-.customer-tr:nth-child(even) {
-    background-color: #0b093e;
-    display: flex;
-}
-
-.customer-tr:nth-child(odd) {
-    background-color: #1c194f;
-    display: flex;
-}
-
-.customer-tr {
-    color:#b0b0b0;
+.tr {
+    color:#cdcdcd;
     transition: .2s linear;
+    display: flex;
+
 }
 
-.customer-tr:hover {
-    background: rgb(154, 125, 125);
+.tr:nth-child(even) {
+    background-color: #0b093e;
+}
+
+.tr:nth-child(odd) {
+    background-color: #1c194f;
+
+}
+
+.tr:hover {
+    background-color: rgb(154, 125, 125);
     color: #040318;
 }
 
-.customer-th {
+.th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
     background-color: #040318;
     color:rgb(208, 148, 148);
     text-align: center;
 }
 
-.customer-table button {
+.th, .td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table button {
     padding: 10px 15px;
     border-radius: 6px;
     margin: 15px;
@@ -430,15 +561,29 @@ body {
     transition: .2s linear;
 }
 
-.customer-table button:hover {
+.table button:hover {
     background-color: #040318;
     color: rgb(208, 208, 208);
+}
+
+/*Customer.js
+includes filter, table-section, pagination styling from Films.js
+*/
+
+.customersPage {
+    display: flex;
 }
 
 .customer-details {
     justify-content: center;
     align-items: center;
 }
+
+.customer-details strong {
+    text-decoration: underline;
+}
+
+/*CustomerPopup.js*/
 
 .customer-popup {
     position: fixed;
@@ -456,10 +601,6 @@ body {
     border-radius: 15px;
     z-index: 1000;
     color: #cecece;
-}
-
-.CustomerDetails strong {
-    text-decoration: underline;
 }
 
 .customer-popup-inner {
@@ -482,6 +623,8 @@ body {
     background: rgb(45, 5, 5);
     color: #fff;
 }
+
+/*RentalTable.js*/
 
 .rental-table-wrapper {
     max-height: 400px;

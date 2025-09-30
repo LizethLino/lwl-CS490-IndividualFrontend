@@ -31,18 +31,24 @@ const RentalTable = ({data}) => {
         {
             accessorKey: 'rental_duration',
             header: "Rental Duration",
-            cell: (props) => <p>{props.getValue()}</p>
+            cell: (props) => <p>{props.getValue()} Days</p>
         },
         {
             accessorKey: 'rental_rate',
             header: "Rental Rate",
-            cell: (props) => <p>{props.getValue()}</p>
+            cell: (props) => <p>${props.getValue()}</p>
         },
         {
             accessorKey: 'replacement_cost',
             header: "Replacement Cost",
+            cell: (props) => <p>${props.getValue()}</p>
+        },
+        {
+            accessorKey: 'staff_id',
+            header: "Staff ID",
             cell: (props) => <p>{props.getValue()}</p>
         }
+
     ]
 
     const table = useReactTable({

@@ -103,16 +103,15 @@ export default function Customers() {
                         onViewDetails={handleCustomerClick}
                     />
                 </div>
-                <br/>
                 <div className='pagination'>
                     <p>Page {pagenum} of {totalpages}</p>
-                    <button 
+                    <button className="prev-button"
                         onClick={() => setPagenum(prev => (prev === 1 ? 1 : prev-1))}
                         disabled={pagenum <= 1}
                     >
                         Prev
                     </button>
-                    <button
+                    <button className="next-button"
                         onClick={() => setPagenum(next => (next === totalpages ? totalpages : next+1))}
                         disabled={pagenum >= totalpages}
                     >
