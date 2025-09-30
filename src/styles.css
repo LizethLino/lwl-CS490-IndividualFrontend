@@ -28,6 +28,10 @@ body {
     height: 500px;
 }
 
+.filmsPage .filter {
+    height: 600px;
+}
+
 .filter h2 {
     font-size: x-large;
     text-align: center;

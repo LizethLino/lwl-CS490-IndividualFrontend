@@ -27,6 +27,9 @@ export default function Customers() {
         firstname: "",
         lastname: ""
     })
+
+    const [formerrors, setFormerrors] = useState({})
+    const [issubmit, setIssubmit] = useState(false)
     
     const retrieveCustomers = (page = 1, filters = submittedfilter) => {
         const { customerid, firstname, lastname } = filters
@@ -51,8 +54,28 @@ export default function Customers() {
                 retrieveCustomers(pagination.pageIndex+1)
     },[pagination])
 
+    const validate = (first, last) => {
+        const errors = {}
+        const regex = /^[a-zA-Z]*$/
+        if(!regex.test(first)) {
+            errors.first = "First name must be letters only."
+        }
+        if (!regex.test(last)) {
+            errors.last = "Last name must be letters only."
+        }
+        return errors
+    }
+
     const handleFilterClick = (event) => {
         event.preventDefault()
+        const err = validate(firstname, lastname)
+        setFormerrors(err)
+
+        if(Object.keys(err).length > 0) {
+            return
+        }
+
+        setIssubmit(true)
 
         const newFilters = {
             customerid, firstname, lastname
@@ -96,12 +119,14 @@ export default function Customers() {
                             value={firstname}
                             onChange={event => setFirstname(event.target.value)}
                         />
+                        {formerrors.first && <p style={{color:'red', fontSize:12}}>{formerrors.first}</p>}
                         <label htmlFor='lastname'>Last Name:{""}</label>
                         <input 
                             type='text'
                             value={lastname}
                             onChange={event => setLastname(event.target.value)}
                         />
+                        {formerrors.last && <p style={{color:'red', fontSize:12}}>{formerrors.last}</p>}
                         <button className='filter-btn'>Submit</button>
                         <p><strong>Note:</strong> Submitting on blank fields and ID as 0 will reset the customer list</p>
                     </form> 

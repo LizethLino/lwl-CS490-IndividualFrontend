@@ -29,6 +29,8 @@ export default function Films() {
         category: ""
     })
 
+    const [formerrors, setFormerrors] = useState({})
+
     const retrieveFilms = (page = 1, filters = submittedfilter) => {
         const { title, actorfirst, actorlast, category } = filters
 
@@ -51,9 +53,33 @@ export default function Films() {
     useEffect(() => {
             retrieveFilms(pagination.pageIndex+1)
     },[pagination])
+
+    const validate = (filmtitle, actorfirstname, actorlastname, cat) => {
+        const errors = {}
+        const regex = /^[a-zA-Z]*$/
+        if(!regex.test(filmtitle)) {
+            errors.filmtitle = "Title must be letters only."
+        }
+        if (!regex.test(actorfirst)) {
+            errors.actorfirstname = "First name must be letters only."
+        }
+        if (!regex.test(actorlast)) {
+            errors.actorlastname = "Last name must be letters only."
+        }
+        if (!regex.test(cat)) {
+            errors.cat = "Genre must be letters only."
+        }
+        return errors
+    }
     
     const handleFilterClick = (event) => {
         event.preventDefault()
+        const err = validate(title, actorfirst, actorlast, category)
+        setFormerrors(err)
+
+        if(Object.keys(err).length > 0) {
+            return
+        }
 
         const newFilters = {
             title, 
@@ -88,23 +114,27 @@ export default function Films() {
                         value={title}
                         onChange={event => setTitle(event.target.value)}
                     />
+                    {formerrors.filmtitle && <p style={{color:'red', fontSize:12}}>{formerrors.filmtitle}</p>}
                     <label htmlFor='firstname'>Actor First Name:{""}</label>
                     <input 
                         value={actorfirst}
                         onChange={event => setActorfirst(event.target.value)}
                     />
+                    {formerrors.actorfirstname && <p style={{color:'red', fontSize:12}}>{formerrors.actorfirstname}</p>}
                     <label htmlFor='lastname'>Actor Last Name:{""}</label>
                     <input 
                         value={actorlast}
                         onChange={event => setActorlast(event.target.value)}
                     />
+                    {formerrors.actorlastname && <p style={{color:'red', fontSize:12}}>{formerrors.actorlastname}</p>}
                     <label>Film Genre:{""}</label>
                     <input 
                         value={category}
                         onChange={event => setCategory(event.target.value)}
                     />
+                    {formerrors.cat && <p style={{color:'red', fontSize:12}}>{formerrors.cat}</p>}
                     <button className='filter-btn'>Submit</button>
-                    <p><strong>Note:</strong> Submitting on blank fields will reset the film list</p>
+                    <p style={{fontSize:14}}><strong>Note:</strong> Submitting on blank fields will reset the film list</p>
                 </form> 
             </div>
         </div>
