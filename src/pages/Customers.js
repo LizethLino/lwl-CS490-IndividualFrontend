@@ -31,7 +31,7 @@ export default function Customers() {
     const retrieveCustomers = (page = 1, filters = submittedfilter) => {
         const { customerid, firstname, lastname } = filters
 
-        fetch(`/customers/all?customer_id=${customerid}&first_name=${firstname}&last_name=${lastname}&page=${page}`)
+        fetch(`/customers/all?customer_id=${customerid}&first_name=${firstname.trim()}&last_name=${lastname.trim()}&page=${page}`)
         .then(res => res.json())
         .then(customerslist => {
             setCustomerslist(customerslist.customers)

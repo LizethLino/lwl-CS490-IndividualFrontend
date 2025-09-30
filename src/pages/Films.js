@@ -32,7 +32,7 @@ export default function Films() {
     const retrieveFilms = (page = 1, filters = submittedfilter) => {
         const { title, actorfirst, actorlast, category } = filters
 
-        fetch(`/films/all?film_title=${title}&actor_first=${actorfirst}&actor_last=${actorlast}&category_name=${category}&page=${page}`)
+        fetch(`/films/all?film_title=${title.trim()}&actor_first=${actorfirst.trim()}&actor_last=${actorlast.trim()}&category_name=${category.trim()}&page=${page}`)
         .then(res => res.json())
         .then(filmslist => {
             setFilmslist(filmslist.films)
